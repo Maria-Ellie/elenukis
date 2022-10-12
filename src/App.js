@@ -10,13 +10,33 @@ import heman from './assets/music/heman.mp3'
 
 function App() {
   const { width, height } = useWindowSize()
-  const audio = new Audio(heman);
-  audio.loop = true;
-  audio.autoplay= true
-  useEffect(() => {
-   
+  const audio_heman = new Audio(heman);
+  
+
+ 
+
+useEffect(() => {
+  // audio_heman.oncanplay=(e)=>{
+  //   console.log(e);
+  //   audio_heman.play()
+  // }
+  audio_heman.oncanplaythrough = (event) => {
+    var playedPromise = audio_heman.play();
     
-  }, [])
+    if (playedPromise) {
+        playedPromise.catch((e) => {
+             console.log(e)
+             if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') { 
+                   console.log(e.name);
+              }
+         }).then(() => {
+              console.log("playing sound !!!");
+         });
+     }
+}
+ 
+}, [])
+
 
   const renderer = ({ days, hours, minutes, seconds }) =>{
     return(
@@ -24,6 +44,9 @@ function App() {
     )
   }
 
+  const isPlaying = (audElem) => {
+    return !audElem.paused;
+  };
  
   
 
@@ -62,7 +85,7 @@ function App() {
               <div style={styles} />
             </div>
             {/* <div className='cube'/> */}
-            
+         
             
           </div>
         </div>
