@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url(./assets/fonts/cocogoose/Cocogoose_trial.otf) format('truetype');
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+
+}
+
+
+.m_container {
+  background-color: #94B3FD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+
+  font-family: 'MyFont';
+  
+}
+.m_container h1{
+  margin-block-end: .1em;
+}
+.date{
+  font-size: calc(4px + 2vmin);
+  margin: 0;
+  margin-block-end: 3em;
+}
+
+.counter, .react-countdown-simple{
+  color:white;
+  text-align: center;
+  text-shadow: 3px 3px 3px #B983FF;
+}
+
+.m_container h4, .m_container h3{
+  margin-block-start: .5em;
+  margin-block-end: .5em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+ }
+
+ .cube{
+  background-color: pink;
+  width: 300px;
+  height: 300px;
+ }
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
