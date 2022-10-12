@@ -5,16 +5,30 @@ import useWindowSize from './useWindowSize';
 import Countdown from 'react-countdown-simple';
 import { useSprite } from 'react-sprite-animator'
 import ditto_image from './assets/img/cbimage.png'
-
+import { useEffect, useState } from 'react';
+import heman from './assets/music/heman.mp3'
 function App() {
   const { width, height } = useWindowSize()
-  
-  const renderer = ({ days, hours, minutes, seconds }) =>{
+  const [audio] = useState(new Audio(heman));
 
+  useEffect(() => {
+    setTimeout(() => {
+      audio.play();
+    }, 3000);
+    
+
+    }, [])
+
+  const renderer = ({ days, hours, minutes, seconds }) =>{
     return(
       <h3 className='counter'>{`${days} day ${hours} hours ${minutes} minutes ${seconds} seconds `}</h3>
     )
   }
+
+ 
+  
+
+ 
   
   const oneHour = new Date('15 October 2022 19:00 UTC').toISOString();
   const frame_w = 700/4, frame_h =154, sheet_w = 700, sheet_h=154, scale = 1;
