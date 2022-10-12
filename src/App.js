@@ -7,17 +7,16 @@ import { useSprite } from 'react-sprite-animator'
 import ditto_image from './assets/img/cbimage.png'
 import { useEffect, useState } from 'react';
 import heman from './assets/music/heman.mp3'
+
 function App() {
   const { width, height } = useWindowSize()
-  const [audio] = useState(new Audio(heman));
-
+  const audio = new Audio(heman);
+  audio.loop = true;
+  audio.autoplay= true
   useEffect(() => {
-    setTimeout(() => {
-      audio.play();
-    }, 3000);
+   
     
-
-    }, [])
+  }, [])
 
   const renderer = ({ days, hours, minutes, seconds }) =>{
     return(
