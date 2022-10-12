@@ -11,29 +11,14 @@ import heman from './assets/music/heman.mp3'
 function App() {
   const { width, height } = useWindowSize()
   const audio_heman = new Audio(heman);
-  
-
- 
+  audio_heman.load=true;
+  audio_heman.muted=true;
 
 useEffect(() => {
-  // audio_heman.oncanplay=(e)=>{
-  //   console.log(e);
-  //   audio_heman.play()
-  // }
-  audio_heman.oncanplaythrough = (event) => {
-    var playedPromise = audio_heman.play();
-    
-    if (playedPromise) {
-        playedPromise.catch((e) => {
-             console.log(e)
-             if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') { 
-                   console.log(e.name);
-              }
-         }).then(() => {
-              console.log("playing sound !!!");
-         });
-     }
-}
+   setTimeout(() => {
+    audio_heman.muted=false;
+    audio_heman.play()
+  }, 3000);
  
 }, [])
 
@@ -44,9 +29,7 @@ useEffect(() => {
     )
   }
 
-  const isPlaying = (audElem) => {
-    return !audElem.paused;
-  };
+ 
  
   
 
