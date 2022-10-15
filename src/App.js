@@ -24,9 +24,19 @@ useEffect(() => {
 
 
   const renderer = ({ days, hours, minutes, seconds }) =>{
-    return(
-      <h3 className='counter'>{`${days} day ${hours} hours ${minutes} minutes ${seconds} seconds `}</h3>
-    )
+    if(days > 0 || hours > 0 || minutes > 0 || seconds > 0)
+      return(
+        <h3 className='counter'>{`${days} day ${hours} hours ${minutes} minutes ${seconds} seconds `}</h3>
+      )
+    else {
+      return(
+        <div>
+         <img src='https://media.tenor.com/E8SpjwdBC-YAAAAC/eshoy-es.gif'/>
+          
+        </div>
+        
+      )
+    }
   }
 
  
