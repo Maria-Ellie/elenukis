@@ -35,7 +35,7 @@ useEffect(() => {
 
  
   
-  const oneHour = new Date('15 October 2022 19:00 UTC').toISOString();
+  const oneHour = new Date('15 October 2022 19:00').toISOString();
   const frame_w = 700/4, frame_h =154, sheet_w = 700, sheet_h=154, scale = 1;
   const styles = useSprite({
     sprite: ditto64,
